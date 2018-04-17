@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title>三栏布局</title>
+    <link href="style.css" rel="stylesheet">
+</head>
+<body>
+<p>1.自身浮动法：左栏左浮动，右栏右浮动，中间栏放最后。</p>
+<p>常用的三栏布局中，用的较多的浮动布局，会因为div块的先后顺序而产生不同的效果。
+    这种情况下，一般左右两栏div需要在中间栏之前。这样，才能让左右两个边栏浮动到它们应该的位置上，
+    以此来使得中栏能够进入中间的空间，并自适应布局。若是浏览器在一个或者两个边栏div之前发现中栏，
+    那么中栏会先占据一侧或者两侧位置，这样浮动的部分就会跑到中栏的下面。</p>
+<style>
+    #left1{
+        width: 200px;
+        float: left;
+    }
+    #right1{
+        width: 200px;
+        float: right;
+    }
+    #main1{
+        margin: 0 200px;
+    }
+</style>
+<div class="box">
+    <div id="left1" class="elemA"></div>
+    <div id="right1" class="elemC"></div>
+    <div id="main1" class="elemB"></div>
+</div>
+
+<p>2.绝对定位法：左右两栏采用绝对定位，分别固定于页面的左右两侧，中间的主体栏用左右margin值撑开距离。</p>
+<style>
+    #left2{
+        width: 200px;
+        position: absolute;
+        top: 0;
+        left: 0;
+    }
+    #right2{
+        width: 200px;
+        position: absolute;
+        top: 0;
+        right: 0;
+    }
+    #main2{
+        margin: 0 200px;
+    }
+    .box2{
+        position: relative;
+    }
+</style>
+<div class="box box2">
+    <div id="left2" class="elemA"></div>
+    <div id="main2" class="elemB"></div>
+    <div id="right2" class="elemC"></div>
+</div>
+
+<p>3.margin负值法：左右两栏均左浮动，左右两栏采用负的margin值。中间栏被宽度为100%的浮动元素包起来。</p>
+<p>左右两栏div的顺序不分先后，但是 主体部分div 要放前面。</p>
+<style>
+    #main3{
+        float: left;
+        width: 100%;
+    }
+    .content {
+        margin: 0 200px;
+        height: 100%;
+    }
+    #left3{
+        float: left;
+        width: 200px;
+        margin-left: -100%;
+    }
+    #right3{
+        float: left;
+        width: 200px;
+        margin-left: -200px;
+    }
+
+</style>
+<div class="box">
+    <div id="main3" class="elemB">
+        <div class="content"></div>
+    </div>
+    <div id="left3" class="elemA"></div>
+    <div id="right3" class="elemC"></div>
+</div>
+
+<p>4.使用flexbox</p>
+<style>
+    .box4{
+        display: flex;
+    }
+    #left4{
+        width: 200px;
+    }
+    #right4{
+        width: 200px;
+    }
+    #main4{
+        flex-grow: 1;
+    }
+
+</style>
+<div class="box box4">
+    <div id="left4" class="elemA"></div>
+    <div id="main4" class="elemB"></div>
+    <div id="right4" class="elemC"></div>
+</div>
+</body>
+</html>

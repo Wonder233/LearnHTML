@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title>垂直居中</title>
+    <link href="style.css" rel="stylesheet">
+</head>
+<body>
+<p>1.垂直居中：多行的行内元素解决方案（1）-> 子元素line-height</p>
+
+<p>
+    当一个行内元素，即 inline，inline-* 类型的元素需要居中的话，将它的 line-height
+    设置为父元素的高度即可实现垂直居中效果。
+</p>
+<style>
+    #parent1 {
+        height: 300px;
+    }
+
+    #child1 {
+        line-height: 300px;
+    }
+</style>
+<div id="parent1" class="box">
+    <span id="child1" class="childBox">Wonder</span>
+    <span id="child1" class="childBox">Wonder</span>
+</div>
+
+<p>2.垂直居中：多行的行内元素解决方案（2）-> 父元素 display 和 vertical-align:middle</p>
+
+<p>
+    将父元素的属性设置为 display:table/table-cell 和 vertical-align:middle 。
+</p>
+<style>
+    #parent2 {
+        display: table;
+        vertical-align: middle;
+    }
+
+    #child2 {
+        line-height: 300px;
+    }
+</style>
+<div id="parent2" class="box">
+    <span id="child2" class="childBox">Wonder</span>
+    <span id="child2" class="childBox">Wonder</span>
+</div>
+
+
+<p>3.垂直居中：已知高度的块状元素解决方案 -> 父元素 relative 子元素 absolute 和 设置位置 top & margin-top</p>
+<style>
+    #parent3 {
+        position: relative;
+    }
+
+    #child3 {
+        position: absolute;
+        top: 50%;
+        margin-top: -50px;
+    }
+</style>
+<div id="parent3" class="box">
+    <div id="child3" class="childBox">Wonder</div>
+</div>
+
+<p>4.垂直居中：未知高度的块状元素解决方案 -> 父元素 relative 子元素 absolute 和 设置位置 top & trasform</p>
+
+<p>transform 中 translate偏移的百分比就是相对于元素自身的尺寸而言的。</p>
+<style>
+    #parent4 {
+        position: relative;
+    }
+
+    #child4 {
+        position: absolute;
+        top: 50%;
+        transform: translate(0, -50%);
+    }
+</style>
+<div id="parent4" class="box">
+    <div id="child4" class="childBox">Wonder</div>
+</div>
+
+<p>5.垂直居中：使用flex </p>
+<style>
+    #parent5 {
+        display: flex;
+        align-items: center;
+    }
+
+    #child5 {
+    }
+</style>
+<div id="parent5" class="box">
+    <div id="child5" class="childBox">Wonder</div>
+</div>
+</body>
+</html>

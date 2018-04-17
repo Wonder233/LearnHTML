@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+    <style>
+        .elementA{
+            width:100px;
+            height:100px;
+            background-color:red;
+        }
+        .elementB{
+            width:200px;
+            height:200px;
+            background-color:blue;
+        }
+    </style>
+</head>
+<body>
+<h1>BFC区域不会与float box 重叠</h1>
+<p>元素A未添加float</p>
+<div class="elementA">A</div>
+<div class="elementB">B</div>
+
+
+<p>元素A添加float属性后，元素A脱离文档流。</p>
+<p>正常情况下，后面元素B会与前面的元素A重叠（因为float导致A元素脱离文档流不再占据原来的位置，后面元素会占据前面的位置，如图）</p>
+<div class="elementA" style="float: left;">A</div>
+<div class="elementB">B</div>
+
+<p>给元素B添加 overflow:hidden</p>
+<p>则元素B会成为一个新的BFC</p>
+<div class="elementA" style="float: left;">A</div>
+<div class="elementB" style="overflow: hidden;">B</div>
+
+<p>给元素B添加 position: absolute </p>
+<p>则元素B会成为一个新的BFC</p>
+<div class="elementA" style="float: left;">A</div>
+<div class="elementB" style="position: absolute;">B</div>
+</body>
+</html>

@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title>焦点轮播图</title>
+</head>
+<body>
+<div id="box">
+    <ul id="ul">
+        <li style='display:block;'><img src="images/1.png" alt=""></li>
+        <li style='display:none;'><img src="images/2.png" alt=""></li>
+        <li style='display:none;'><img src="images/3.png" alt=""></li>
+        <li style='display:none;'><img src="images/4.png" alt=""></li>
+        <li style='display:none;'><img src="images/5.png" alt=""></li>
+    </ul>
+    <ol id='ol'>
+        <li class='active'>1</li>
+        <li>2</li>
+        <li>3</li>
+        <li>4</li>
+        <li>5</li>
+    </ol>
+</div>
+</body>
+<script>
+    window.onload=function(){
+        var oUl=document.getElementById('ul');
+        var aLi_u=oUl.getElementsByTagName('li');
+        var oOl=document.getElementById('ol');
+        var aLi_o=oOl.getElementsByTagName('li');
+        for(var i=0;i<aLi_o.length;i++){
+            aLi_o[i].index=i;
+            aLi_o[i].onmouseover=function(){
+                for(var i=0;i<aLi_o.length;i++){
+                    aLi_o[i].className='';
+                    aLi_u[i].style.display='none';
+                }
+                this.className='active';
+                // console.log(aLi_o[this.index]);
+                aLi_u[this.index].style.display='block';
+            }
+        }
+    }
+</script>
+</html>

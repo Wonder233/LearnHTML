@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title>两栏布局</title>
+    <link href="style.css" rel="stylesheet">
+</head>
+<body>
+<p>1.float + margin-left：</p>
+<style>
+    #left1{
+        width: 200px;
+        float: left;
+    }
+    #right1{
+        margin-left: 200px;
+    }
+</style>
+<div class="box">
+    <div id="left1" class="elemA">左边</div>
+    <div id="right1" class="elemB">右边</div>
+</div>
+
+<p>2.position : absolute + margin-left</p>
+<style>
+    .box2{
+        position: relative;
+    }
+    #left2{
+        position: absolute;
+        width: 200px;
+    }
+    #right2{
+        margin-left: 200px;
+    }
+</style>
+<div class="box box2">
+    <div id="left2" class="elemA">左边</div>
+    <div id="right2" class="elemB">右边</div>
+</div>
+
+<p>3.float + BFC</p>
+<style>
+    .box3{
+    }
+    #left3{
+        float: left;
+        width: 200px;
+    }
+    #right3{
+        /*overflow: hidden;*/
+    }
+</style>
+<div class="box box3">
+    <div id="left3" class="elemA">左边</div>
+    <div id="right3" class="elemB">右边</div>
+</div>
+
+<p>4.flex实现</p>
+<style>
+    .box4{
+        display: flex;
+    }
+    #left4{
+        width: 200px;
+    }
+    #right4{
+        flex-grow: 1;
+    }
+</style>
+<div class="box box4">
+    <div id="left4" class="elemA">左边</div>
+    <div id="right4" class="elemB">右边</div>
+</div>
+</body>
+</html>

@@ -1,0 +1,23 @@
+.box {
+    width: 100%;
+    height: 300px;
+    background: #ddd;
+}
+.elemA {
+    background: orange;
+    height: 100%;
+}
+.elemB {
+    background: cadetblue;
+    height: 100%;
+}
+
+.elemC{
+    background: indianred;
+    height: 100%;
+}
+
+body{
+    width: 800px;
+    margin: 0 auto;
+}

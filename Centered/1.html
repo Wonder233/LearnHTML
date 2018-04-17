@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title>水平居中</title>
+    <link href="style.css" rel="stylesheet">
+</head>
+<body>
+<p>1.水平居中：行内元素解决方案</p>
+<p>
+    将子（行内）元素包裹在一个属性 display为block 的父元素中，并且给父元素添加 text-align: center 即可。
+</p>
+<style>
+    #parent1 {
+        text-align: center
+    }
+
+    #child1 {
+    }
+</style>
+<div id="parent1" class="box">
+    <span id="child1" class="childBox">Wonder</span>
+</div>
+
+
+<p>2.水平居中：块状元素解决方案</p>
+<p>
+    将子（块状）元素的左右外边距（即，margin-left，margin-right）设置为auto，即可实现块状元素的居中。
+</p>
+<style>
+    #parent2 {
+    }
+
+    #child2 {
+        margin: 0 auto;
+    }
+</style>
+<div id="parent2" class="box">
+    <div id="child2" class="childBox">Wonder</div>
+    <div id="child2" class="childBox">Wonder</div>
+</div>
+
+<p>3.水平居中：多个块状元素解决方案</p>
+<p>
+    将多个子（块状）元素的 display 属性设置为 inline-block，
+    并且把父元素的 text-align 属性设置为 center 即可。
+</p>
+<style>
+    #parent3 {
+        text-align: center;
+    }
+
+    .child3 {
+        display: inline-block;
+    }
+</style>
+<div id="parent3" class="box">
+    <div class="childBox child3">Wonder</div>
+    <div class="childBox child3">Wonder</div>
+</div>
+
+
+<p>4.水平居中：多个块状元素解决方案(使用flexbox布局实现)</p>
+<p>
+    给父元素添加属性 display:flex 及 justify-content:center 即可。
+</p>
+<style>
+    #parent4 {
+        display: flex;justify-content: center;
+    }
+
+    #child4 {
+    }
+</style>
+<div id="parent4" class="box">
+    <div id="child4" class="childBox">Wonder</div>
+    <div id="child4" class="childBox">Wonder</div>
+</div>
+</body>
+</html>
